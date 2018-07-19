@@ -1,0 +1,106 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ app_name }} - best chicks on the market!{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    <link rel="stylesheet" href="{{ asset('owlcarousel/dist/assets/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('owlcarousel/dist/assets/owl.theme.default.min.css') }}">
+{% endblock %}
+
+{% block body %}
+    <section class="section section-welcome">
+
+        <div id="welcome-carousel" class="carousel slide carousel-fade section-welcome_carousel" data-ride="carousel" data-interval="10000">
+            <ol class="carousel-indicators">
+                <li data-target="#welcome-carousel" data-slide-to="0" class="active"></li>
+                {#<li data-target="#welcome-carousel" data-slide-to="1"></li>#}
+                {#<li data-target="#welcome-carousel" data-slide-to="2"></li>#}
+            </ol>
+
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100"
+                         src="{{ asset('img/chendler-chicken.png') }}"
+                         alt="First slide"
+                    >
+
+                    <div class="carousel-caption d-none d-md-flex">
+                        <div class="container">
+                            <h5 class="h1">
+                                <strong>{{ app_name }}</strong> it's decades of experience and thousands satisfied clients!
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+
+                {#<div class="carousel-item">#}
+                    {#<img class="d-block w-100" src="{{ asset('img/chendler-chicken.png') }}" alt="First slide">#}
+                {#</div>#}
+
+                {#<div class="carousel-item">#}
+                    {#<img class="d-block w-100" src="{{ asset('img/chendler-chicken.png') }}" alt="First slide">#}
+                {#</div>#}
+            </div>
+        </div>
+
+    </section>
+
+    <section class="section section-our-pros py-4">
+        <div class="container">
+            <h2 class="text-center mb-4">Are we the best? Of course we are, son of the bitch!</h2>
+
+            <div class="row">
+                <div class="col-lg-4">
+                    <h4>Some our pros</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi architecto aspernatur culpa doloremque eius esse illo numquam pariatur quo? Accusamus animi dolore iste laborum, nihil nisi numquam soluta vero voluptate.</p>
+                </div>
+                <div class="col-lg-4">
+                    <h4>Some our pros</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab consequuntur dolores fugit itaque laboriosam minima praesentium quidem rerum! Quibusdam, totam, voluptatem. At facilis modi quasi quos recusandae sint ut? Cumque!</p>
+                </div>
+                <div class="col-lg-4">
+                    <h4>Some our pros</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet doloribus eaque eligendi esse, facilis illo impedit incidunt magnam molestias necessitatibus qui repudiandae suscipit ullam, ut vel velit vitae voluptate.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-chickens-carousel">
+        <div class="container">
+            <div class="owl-carousel">
+                {% for i in 1..10 %}
+                <div>
+                    <div class="card mb-3 mx-3">
+                        <img class="card-img-top" src="{{ asset('img/quick-chick-chickens.jpg') }}" alt="Chicken">
+                        <div class="card-body">
+                            <h5 class="card-title">Light card title</h5>
+
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+                            <div class="text-center">
+                                <a href="#" class="btn btn-warning">Chick it out</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="{{ asset('owlcarousel/dist/owl.carousel.min.js') }}"></script>
+    <script>
+        (function($) {
+            $(document).ready(function(){
+                $(".owl-carousel").owlCarousel();
+            });
+        })(jQuery);
+    </script>
+{% endblock %}
